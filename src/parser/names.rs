@@ -11,7 +11,7 @@ impl ExpressionParser {
                 ("INTEGER_CONST".to_string(), i32::from_str_radix(inner.as_str().trim_start_matches('0'), 8).unwrap().to_string())
             } else if rule_name == "HEX_INTEGER" {
                 ("INTEGER_CONST".to_string(), i32::from_str_radix(inner.as_str().trim_start_matches("0x"), 16).unwrap().to_string())
-            } else if rule_name == "DEC_INTEGER" {
+            } else if rule_name == "DEX_INTEGER" {
                 ("INTEGER_CONST".to_string(), inner.as_str().to_string())
             } else if is_uppercase(&rule_name) {
                 (rule_name, inner.as_str().to_string())
