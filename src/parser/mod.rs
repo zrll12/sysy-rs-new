@@ -32,7 +32,7 @@ impl ExpressionParser {
             if name.is_empty() {
                 continue;
             }
-            eprintln!("{} {} at Line {}", name, value, record.line_col().0)
+            eprintln!("{} {} at Line {}.", name, value, record.line_col().0)
             
             // if let Some(inner) = record.into_inner().next() {
             //     eprintln!("{:?} {} at line {}", inner.as_rule(), inner.as_str(), inner.line_col().0)
