@@ -14,15 +14,15 @@ pub enum Token {
 }
 
 impl ExpressionParser {
-    pub fn tokenize(input: &str) {
-        let pair = Self::parse(Rule::file, input).unwrap();
+    // pub fn tokenize(input: &str) {
+        // let pair = Self::parse(Rule::file, input).unwrap();
         // println!("{:?}", pair);
-    }
+    // }
 
     pub fn tokenize_print(input: &str) {
         let pair = Self::parse(Rule::file, input).unwrap_or_else(|err| {
             if let Pos((col, _)) = err.line_col {
-                eprintln!("Error type A at Line {col}: Mysterious character ({}).", err.line());
+                eprintln!("Error type A at Line {col}: Mysterious character at '{}'.", err.line());
             }
             exit(0);
         }).next().unwrap();

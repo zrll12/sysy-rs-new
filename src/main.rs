@@ -2,12 +2,7 @@ mod parser;
 
 use std::{env, fs};
 
-use pest_derive::Parser;
 use crate::parser::ExpressionParser;
-
-// #[derive(Parser)]
-// #[grammar = "lexer.pest"] // 指向你的 .pest 文件
-struct SysYLexer;
 
 fn main() {
     // 收集命令行参数
@@ -29,5 +24,5 @@ fn main() {
     }
 
     // 词法分析
-    let tokens = ExpressionParser::tokenize_print(&input);
+    ExpressionParser::tokenize_print(&input);
 }
