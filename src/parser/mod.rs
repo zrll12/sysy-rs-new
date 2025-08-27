@@ -22,7 +22,7 @@ impl ExpressionParser {
     pub fn tokenize_print(input: &str) {
         let pair = Self::parse(Rule::file, input).unwrap_or_else(|err| {
             if let Pos((col, _)) = err.line_col {
-                eprintln!("Error type A at Line {col}: Mysterious character at '{}'.", err.line());
+                println!("Error type A at Line {col}: Mysterious character at '{}'.", err.line());
             }
             exit(0);
         }).next().unwrap();
@@ -32,7 +32,7 @@ impl ExpressionParser {
             if name.is_empty() {
                 continue;
             }
-            eprintln!("{} {} at Line {}.", name, value, record.line_col().0)
+            println!("{} {} at Line {}.", name, value, record.line_col().0)
             
             // if let Some(inner) = record.into_inner().next() {
             //     eprintln!("{:?} {} at line {}", inner.as_rule(), inner.as_str(), inner.line_col().0)
