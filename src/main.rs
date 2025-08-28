@@ -18,10 +18,7 @@ fn main() {
     let filename = &args[1];
 
     // 读取输入文件
-    let mut input = fs::read_to_string(filename).expect("Failed to read file");
-    if !input.ends_with('\n') {
-        input.push_str("\n");
-    }
+    let input = fs::read_to_string(filename).expect("Failed to read file");
 
     // 词法分析
     ExpressionParser::tokenize_print(&input);
